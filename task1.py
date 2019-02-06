@@ -9,10 +9,10 @@ easy(file)
 print(l)
 
 file=open("Street_Centrelines.csv")
-def histogram(s):
+def histogram(file):
 	d = dict()
-	s.readline()
-	for line in s:
+	file.readline()
+	for line in file:
 		line=line.split(",")
 		if line[12]  not in d:
 			d[line[12]] = 1
@@ -20,3 +20,14 @@ def histogram(s):
 			d[line[12]] += 1
 	return d
 print(histogram(file))
+
+file=open("Street_Centrelines.csv")
+def own(file):
+	s=set()
+	file.readline()
+	for line in file:
+		line=line.split(",")
+		s.add(line[11])
+	return s
+print(own(file))
+
